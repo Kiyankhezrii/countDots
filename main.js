@@ -50,7 +50,6 @@ const findDots = function (sentences) {
   let sum=0
   words.forEach((word) => {
     const w = word.split("");
-    console.log(w);
     sum += w.reduce((acc, cur) => {
       return acc + numberDotsAlphabet[alphabet.indexOf(cur)];
     }, 0);
@@ -61,3 +60,9 @@ const findDots = function (sentences) {
   numberDots.textContent = sum;
 };
 
+// event listeners
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  findDots(input.value);
+  input.value = "";
+});
